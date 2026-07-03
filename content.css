@@ -1,0 +1,49 @@
+/* content.css — overlay must be visually invisible except for the ghost suggestion */
+
+.ai-ac-overlay {
+  position: absolute;
+  z-index: 2147483647;
+  pointer-events: none;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: transparent; /* the "typed so far" mirror text stays invisible */
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.ai-ac-overlay .ai-ac-suggestion {
+  color: rgba(120, 120, 120, 0.85);
+}
+
+/* contenteditable inline ghost span */
+.ai-ac-inline-ghost {
+  color: rgba(120, 120, 120, 0.85);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* small floating hint badge shown near an active suggestion */
+.ai-ac-hint {
+  position: absolute;
+  z-index: 2147483647;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: rgba(30, 30, 30, 0.85);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  white-space: nowrap;
+}
+
+.ai-ac-hint.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
